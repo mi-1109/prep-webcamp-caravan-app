@@ -4,16 +4,17 @@ class BlogsController < ApplicationController
   end
 
   def show #詳細表示ページ
+    @blog = Blog.find(params[:id])
   end
 
-  def new
+  def new #新規投稿ページ
     @blog = Blog.new
   end
 
   def create #記事を保存
     blog = Blog.new(blog_params)
     blog.save
-    redirect_to blogs_path
+    redirect_to blog_path(blog.id)
   end
 
   def edit #記事編集ページ
