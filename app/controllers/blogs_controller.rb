@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   def index #記事一覧+Topページ
+    @blogs = Blog.all
   end
 
   def show #詳細表示ページ
